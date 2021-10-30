@@ -4,9 +4,10 @@ import os
 from PIL import Image, ImageDraw, ImageFont
 import random
 
-mainpath ="./resources/images/"
-listanime = os.listdir(mainpath + "anime")
-listano = os.listdir(mainpath + "anonymous")
+fontpath = "./resources/fonts/"
+listfonts = os.listdir(fontpath)
+imgpath ="./resources/images/"
+listano = os.listdir(imgpath + "anonymous")
 
 @bot.on_message(filters.command("alogo"))
 async def logomake(_, message):
@@ -14,10 +15,10 @@ async def logomake(_, message):
             return await message.reply_text("Please give a text")
     m = await message.reply_text("Creating Logo")
     text = message.text.split(None, 1)[1]
-    img = Image.open(mainpath + "anonymous/" + (random.choice(listano)))
+    img = Image.open(imgpath + "anonymous/" + (random.choice(listano)))
     draw = ImageDraw.Draw(img)
     image_widthz, image_heightz = img.size
-    font = ImageFont.truetype("./resources/fonts/7thc.ttf",150)
+    font = ImageFont.truetype(fontpath + (random.choice(listfonts)),150)
     w, h = draw.textsize(text, font=font)
     h += int(h*0.21)
     draw.text(((image_widthz-w)/2, (image_heightz-h)/2), text, font=font, fill=(255, 255, 255))
