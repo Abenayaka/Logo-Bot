@@ -12,7 +12,7 @@ bot = Client("Lorum-Bot",
 @bot.on_message(filters.command("start"))
 async def help(_, update):
     await update.reply_video(
-                    video="https://telegra.ph/file/d3945b72bfe19cd265576.mp4",
+                    video="https://telegra.ph/file/a6f605f70bc9ca7e3dbee.mp4",
                     reply_markup = startbutton,
                     caption = starttext.format(update.from_user.mention))
                      
